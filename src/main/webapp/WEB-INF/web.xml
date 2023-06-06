@@ -1,0 +1,68 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>LoginCTL</servlet-name>
+  	<display-name>LoginCTL</display-name>
+  	<description></description>
+  	<servlet-class>javawebapp.controller.LoginCTL</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserViewCTL</servlet-name>
+  	<display-name>UserViewCTL</display-name>
+  	<description></description>
+  	<servlet-class>javawebapp.controller.UserViewCTL</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HomeCTL</servlet-name>
+  	<display-name>HomeCTL</display-name>
+  	<description></description>
+  	<servlet-class>javawebapp.controller.HomeCTL</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WelcomeCTL</servlet-name>
+  	<display-name>WelcomeCTL</display-name>
+  	<description></description>
+  	<servlet-class>javawebapp.controller.WelcomeCTL</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserListCTL</servlet-name>
+  	<display-name>UserListCTL</display-name>
+  	<description></description>
+  	<servlet-class>javawebapp.controller.UserListCTL</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UploadImageViewCTL</servlet-name>
+  	<display-name>UploadImageViewCTL</display-name>
+  	<description></description>
+  	<servlet-class>javawebapp.controller.UploadImageViewCTL</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginCTL</servlet-name>
+  	<url-pattern>/LoginCTL</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserViewCTL</servlet-name>
+  	<url-pattern>/UserViewCTL</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HomeCTL</servlet-name>
+  	<url-pattern>/HomeCTL</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WelcomeCTL</servlet-name>
+  	<url-pattern>/WelcomeCTL</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserListCTL</servlet-name>
+  	<url-pattern>/UserListCTL</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UploadImageViewCTL</servlet-name>
+  	<url-pattern>/UploadImageViewCTL</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

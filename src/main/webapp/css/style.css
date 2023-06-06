@@ -1,0 +1,30 @@
+@charset "UTF-8";
+.home-content-wrapper{
+background-image: url('../image/bg.jpg');
+background-size: cover;
+height: 100%
+}
+
+.overlay-box{
+	padding: 200px 0px;
+	box-sizing: boarder-box;
+	background: rgba(0, 0, 0, 0.5);
+	height: 100%
+}
+
+.container{
+	width: 1200px;
+	margin: 0px auto;
+}
+
+.welcome-text{
+	color: #FFF;
+	font-size: 75px;
+	font-family: raleway-bold;
+	line-height: 90px;
+}
+
+.img {
+  max-width: 75%;
+  height: auto;
+}
