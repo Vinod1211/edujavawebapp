@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-import org.eclipse.jdt.internal.compiler.batch.Main;
+//import org.eclipse.jdt.internal.compiler.batch.Main;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
