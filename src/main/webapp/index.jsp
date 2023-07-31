@@ -5,23 +5,23 @@
 		data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active ">
-				<img src="/JavaWebApp/image/s1.jpg" class="img d-block w-100"
+				<img src="/javawebapp/image/s1.jpg" class="img d-block w-100"
 					alt="..." height="300px">
 			</div>
 			<div class="carousel-item">
-				<img src="/JavaWebApp/image/s2.jpg" class="d-block w-100"
+				<img src="/javawebapp/image/s2.jpg" class="d-block w-100"
 					alt="..." height="300px">
 			</div>
 			<div class="carousel-item">
-				<img src="/JavaWebApp/image/s3.jpg" class="d-block w-100"
+				<img src="/javawebapp/image/s3.jpg" class="d-block w-100"
 					alt="..." height="300px">
 			</div>
 			<div class="carousel-item">
-				<img src="/JavaWebApp/image/s4.jpg" class="d-block w-100"
+				<img src="/javawebapp/image/s4.jpg" class="d-block w-100"
 					alt="..." height="300px">
 			</div>
 			<div class="carousel-item">
-				<img src="/JavaWebApp/image/s5.jpg" class="d-block w-100"
+				<img src="/javawebapp/image/s5.jpg" class="d-block w-100"
 					alt="..." height="300px">
 			</div>
 		</div>
