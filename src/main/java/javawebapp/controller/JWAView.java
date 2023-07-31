@@ -2,7 +2,7 @@ package javawebapp.controller;
 
 public interface JWAView {
 
-	public String APP_CONTEXT = "/JavaWebApp";
+	public String APP_CONTEXT = "/javawebapp";
 	public String PAGE_FOLDER = "/jsp";
 	
 	public String LoginView = PAGE_FOLDER+"/LoginView.jsp";
