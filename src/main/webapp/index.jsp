@@ -1,6 +1,6 @@
 <%@ include file="jsp/header.jsp"%>
 <body>
-<h2 style="padding: 30px;">Madhuri Education Ltd</h2>
+<h2 style="padding: 30px;">VIBAMAS SOLUTIONS FOR EDU </h2>
 	<div id="carouselExampleControls" class="carousel slide"
 		data-ride="carousel">
 		<div class="carousel-inner">
