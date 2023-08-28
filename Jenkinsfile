@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage ('git source code'){
             steps{
-                git branch: ${params.Branch_Name}, url: 'https://github.com/Vinod1211/edujavawebapp.git'
+                git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
             }
         }
 
