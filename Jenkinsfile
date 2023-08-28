@@ -4,6 +4,9 @@ pipeline{
         choice(name: 'Branch_Name', choices: ['dev', 'master'], description: 'Select the gitHub branch which you want to use')
         string(name: 'Maven_Goal', defaultValue: 'package', description: 'Enter the maven goal')
     }
+    triggers{
+        pollSCM(* * * * *)
+    }
     stages{
         stage ('git source code'){
             steps{
