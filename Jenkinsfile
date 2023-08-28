@@ -12,7 +12,7 @@ pipeline{
             steps{
                 main subject: 'Build Started',
                     body: 'Build Started',
-                    to: 'chengavinod1@gmail.com'
+                    to: 'chengavinod1@gmail.com',
                 git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
             }
         }
