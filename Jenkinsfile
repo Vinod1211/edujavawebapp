@@ -10,8 +10,8 @@ pipeline{
     stages{
         stage ('git source code'){
             steps{
-                mail subject: 'Build process started',
-                    body: 'Build process started',
+                mail subject: "Build process started for Jenkins job: $env.JOB_NAME",
+                    body: "Build process started for Jenkins job: $env.JOB_NAME",
                     to: 'vinoddevops24@gmail.com'
                 git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
             }
@@ -32,19 +32,19 @@ pipeline{
      post {
         always {
             echo 'Job Completed'
-            mail subject: 'Build Completed',
-                    body: 'Build Completed',
+            mail subject: "Build Completed for Jenkins job: $env.JOB_NAME",
+                    body: "Build Completed for Jenkins job: $env.JOB_NAME /n click hear: $env.JOB_URL",
                     to: 'vinoddevops24@gmail.com'
         }
         failure {
-            mail subject: 'Build Failed',
-                    body: 'Build Failed',
+            mail subject: "Build Failed for Jenkins job: $env.JOB_NAME",
+                    body: "Build Failed for Jenkins job: $env.JOB_NAME with build ID: $env.BUILD_ID",
                     to: 'vinoddevops24@gmail.com'
         }
         success {
             echo 'Job Completed successfully'
-            mail subject: 'Build Completed successfully',
-                    body: 'Build Completed successfully',
+            mail subject: "Build Completed successfully for Jenkins job: $env.JOB_NAME",
+                    body: "Build Completed successfully for Jenkins job: $env.JOB_NAME",
                     to: 'vinoddevops24@gmail.com'
         }
     }
