@@ -1,0 +1,21 @@
+node{
+    try{
+        stage('test') {
+            sh 'echo hello'
+        }
+        stage('learning'){
+            git url:'https://github.com/Vinod1211/edujavawebapp.git'
+                branch: 'dev'
+        }
+    }
+    catch(err){
+        mail subject: 'Build Failed',
+                body: 'Build Failed',
+                  to: 'vinoddevops24@gmail.com'
+    }
+    finally{
+         mail subject: 'Build Completed',
+                 body: 'Build Completed',
+                   to: 'vinoddevops24@gmail.com'
+    }
+}
