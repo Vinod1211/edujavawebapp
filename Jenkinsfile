@@ -10,6 +10,9 @@ pipeline{
     stages{
         stage ('git source code'){
             steps{
+                mail subject: 'Build process started',
+                    body: 'Build Completed',
+                    to: 'vinoddevops24@gmail.com'
                 git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
             }
         }
@@ -29,18 +32,18 @@ pipeline{
      post {
         always {
             echo 'Job Completed'
-            main subject: 'Build Completed',
+            mail subject: 'Build Completed',
                     body: 'Build Completed',
                     to: 'vinoddevops24@gmail.com'
         }
         failure {
-            main subject: 'Build Failed',
+            mail subject: 'Build Failed',
                     body: 'Build Failed',
                     to: 'vinoddevops24@gmail.com'
         }
         success {
             echo 'Job Completed successfully'
-            main subject: 'Build Completed successfully',
+            mail subject: 'Build Completed successfully',
                     body: 'Build Completed successfully',
                     to: 'vinoddevops24@gmail.com'
         }
