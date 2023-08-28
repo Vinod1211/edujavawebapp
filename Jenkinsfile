@@ -5,7 +5,7 @@ pipeline{
         string(name: 'Maven_Goal', defaultValue: 'package', description: 'Enter the maven goal')
     }
     triggers{
-        pollSCM(* * * * *)
+        pollSCM('* * * * *')
     }
     stages{
         stage ('git source code'){
