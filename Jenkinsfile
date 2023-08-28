@@ -26,4 +26,23 @@ pipeline{
             }
         }
     }
+     post{
+        always{
+            echo 'Job Completed'
+            main subject: 'Build Completed',
+                    body: 'Build Completed',
+                    to: 'chengavinod1@gmail.com'
+        }
+        failure{
+            main subject: 'Build Failed',
+                    body: 'Build Failed',
+                    to: 'chengavinod1@gmail.com'
+        }
+        success{
+            echo 'Job Completed successfully'
+            main subject: 'Build Completed successfully',
+                    body: 'Build Completed successfully',
+                    to: 'chengavinod1@gmail.com'
+        }
+    }
 }
