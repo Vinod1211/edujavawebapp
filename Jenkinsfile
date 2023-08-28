@@ -10,9 +10,6 @@ pipeline{
     stages{
         stage ('git source code'){
             steps{
-                main subject: 'Build Started',
-                    body: 'Build Started',
-                    to: 'chengavinod1@gmail.com',
                 git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
             }
         }
@@ -27,25 +24,6 @@ pipeline{
             steps{
                 sh 'whoami'
             }
-        }
-    }
-    post{
-        always{
-            echo 'Job Completed'
-            main subject: 'Build Completed',
-                    body: 'Build Completed',
-                    to: 'chengavinod1@gmail.com'
-        }
-        failure{
-            main subject: 'Build Failed',
-                    body: 'Build Failed',
-                    to: 'chengavinod1@gmail.com'
-        }
-        success{
-            echo 'Job Completed successfully'
-            main subject: 'Build Completed successfully',
-                    body: 'Build Completed successfully',
-                    to: 'chengavinod1@gmail.com'
         }
     }
 }
