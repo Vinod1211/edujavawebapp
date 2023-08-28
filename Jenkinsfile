@@ -2,7 +2,7 @@ pipeline{
     agent { label 'node1'}
     parameters {
         choice(name: 'Branch_Name', choices: 'dev, master', description: 'Select the gitHub branch which you want to use')
-        string(name: 'Maven_Version', defaultValue: 'maven-3.8.8', description: 'Select the gitHub branch which you want to use')
+        string(name: 'Maven_Goal', defaultValue: 'package', description: 'Enter the maven goal')
     }
     stages{
         stage ('git source code'){
@@ -13,7 +13,7 @@ pipeline{
 
         stage('build'){
             steps{
-                sh "/opt/apache-${params.Maven_Version}/bin/mvn clean package"
+                sh "/opt/apache-maven-3.8.8/bin/mvn ${params.Maven_Goal}"
             }
         }
 
