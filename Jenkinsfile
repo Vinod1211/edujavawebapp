@@ -12,5 +12,11 @@ pipeline{
                 sh '/opt/apache-maven-3.8.8/bin/mvn clean package'
             }
         }
+
+        stage('artifacts'){
+            steps{
+                sh 'whoami'
+            }
+        }
     }
 }
