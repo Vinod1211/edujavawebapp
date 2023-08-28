@@ -2,7 +2,7 @@ pipeline{
     agent { label 'node1'}
     parameters {
         choice(name: 'Branch_Name', choices: ['dev', 'master'], description: 'Select the gitHub branch which you want to use')
-        string(name: 'Maven_Goal', defaultValue: 'package', description: 'Enter the maven goal')
+        string(name: 'Maven_Goal', defaultValue: 'clean package', description: 'Enter the maven goal')
     }
     triggers{
         pollSCM('* * * * *')
