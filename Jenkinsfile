@@ -31,18 +31,18 @@ pipeline{
             echo 'Job Completed'
             main subject: 'Build Completed',
                     body: 'Build Completed',
-                    to: 'chengavinod1@gmail.com'
+                    to: 'vinoddevops24@gmail.com'
         }
         failure {
             main subject: 'Build Failed',
                     body: 'Build Failed',
-                    to: 'chengavinod1@gmail.com'
+                    to: 'vinoddevops24@gmail.com'
         }
         success {
             echo 'Job Completed successfully'
             main subject: 'Build Completed successfully',
                     body: 'Build Completed successfully',
-                    to: 'chengavinod1@gmail.com'
+                    to: 'vinoddevops24@gmail.com'
         }
     }
 }
