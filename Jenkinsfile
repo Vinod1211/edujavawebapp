@@ -1,7 +1,7 @@
 pipeline{
     agent { label 'Java_Project'}
     parameters {
-        choice(name: 'Branch_Name', choices: 'dev, master', description: 'Select the gitHub branch which you want to use')
+        choice(name: 'Branch_Name', choices: ['dev', 'master'], description: 'Select the gitHub branch which you want to use')
         string(name: 'Maven_Goal', defaultValue: 'package', description: 'Enter the maven goal')
     }
     stages{
