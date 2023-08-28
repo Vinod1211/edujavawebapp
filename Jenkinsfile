@@ -11,7 +11,7 @@ pipeline{
         stage ('git source code'){
             steps{
                 mail subject: 'Build process started',
-                    body: 'Build Completed',
+                    body: 'Build process started',
                     to: 'vinoddevops24@gmail.com'
                 git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
             }
