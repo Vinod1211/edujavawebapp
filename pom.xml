@@ -35,6 +35,16 @@
 
     
   </dependencies>
+  
+<!--JFrog Artifacts-->
+  <distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0lma57egtzhf-artifactory-primary-0-snapshots</name>
+        <url>https://mycompanydevops.jfrog.io/artifactory/eduwebapp-libs-snapshot</url>
+    </snapshotRepository>
+</distributionManagement>
+
   <build>
     <finalName>javawebapp</finalName>
     <pluginManagement>
