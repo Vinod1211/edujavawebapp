@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters {
-        string(name: 'Maven_Goal', defaultValue: 'clean install sonar:sonar', description: 'Enter the maven goal')
+        string(name: 'Maven_Goal', defaultValue: 'clean package sonar:sonar', description: 'Enter the maven goal')
     }
     triggers{
         pollSCM('* * * * *')
@@ -33,7 +33,7 @@ pipeline{
                 rtMavenRun (
                     tool: 'Maven3.8.8',
                     pom: 'pom.xml',
-                    goals: 'clean install sonar:sonar',
+                    goals: 'clean package sonar:sonar',
                     deployerId: "MAVEN_DEPLOYER"
                     
                 )
