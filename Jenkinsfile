@@ -29,7 +29,7 @@ pipeline{
 		
 		 stage ('Exec Maven') {
             steps {
-                withSonarQubeEnv('Sonar_Scanner')
+                withSonarQubeEnv('Sonar_Scanner'){
                 rtMavenRun (
                     tool: 'Maven3.8.8',
                     pom: 'pom.xml',
@@ -37,6 +37,7 @@ pipeline{
                     deployerId: "MAVEN_DEPLOYER"
                     
                 )
+                }
             }
         }
 
