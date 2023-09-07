@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters {
-        string(name: 'Maven_Goal', defaultValue: 'clean install', description: 'Enter the maven goal')
+        string(name: 'Maven_Goal', defaultValue: 'clean install sonar:sonar', description: 'Enter the maven goal')
     }
     triggers{
         pollSCM('* * * * *')
