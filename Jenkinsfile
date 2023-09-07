@@ -42,7 +42,7 @@ pipeline{
         stage ('Publish build info') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: "JFrog_Demo"
+                    serverId: "JfrogDemo"
                 )
             }
         }
