@@ -29,10 +29,11 @@ pipeline{
 		
 		 stage ('Exec Maven') {
             steps {
+                withSonarQubeEnv('Sonar_Scanner')
                 rtMavenRun (
                     tool: 'Maven3.8.8',
                     pom: 'pom.xml',
-                    goals: 'clean install',
+                    goals: 'clean install sonar:sonar',
                     deployerId: "MAVEN_DEPLOYER"
                     
                 )
