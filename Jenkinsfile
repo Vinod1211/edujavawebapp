@@ -30,7 +30,7 @@ pipeline{
 		 stage ('Exec Maven') {
             steps {
                 rtMavenRun (
-                    tool: 'maven3.8.8',
+                    tool: 'Maven3.8.8',
                     pom: 'pom.xml',
                     goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER"
