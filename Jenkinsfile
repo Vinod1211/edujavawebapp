@@ -1,8 +1,7 @@
 pipeline{
-    agent { label 'node2'}
+    agent any
     parameters {
-        choice(name: 'Branch_Name', choices: ['dev', 'master'], description: 'Select the gitHub branch which you want to use')
-        string(name: 'Maven_Goal', defaultValue: 'clean package', description: 'Enter the maven goal')
+        string(name: 'Maven_Goal', defaultValue: 'clean install', description: 'Enter the maven goal')
     }
     triggers{
         pollSCM('* * * * *')
@@ -10,42 +9,46 @@ pipeline{
     stages{
         stage ('git source code'){
             steps{
-                mail subject: 'Build process started',
-                    body: 'Build process started',
-                    to: 'vinoddevops24@gmail.com'
-                git branch: "${params.Branch_Name}", url: 'https://github.com/Vinod1211/edujavawebapp.git'
+                
+                git branch: 'dev', url: 'https://github.com/Vinod1211/edujavawebapp.git'
+            }
+        }
+		
+		
+		stage ('Artifactory configuration') {
+            steps {
+
+                rtMavenDeployer (
+                    id: "MAVEN_DEPLOYER",
+                    serverId: "JfrogDemo",
+                    releaseRepo: "eduwebapp-libs-release",
+                    snapshotRepo: "eduwebapp-libs-snapshot"
+                )
+            }
+        }
+		
+		 stage ('Exec Maven') {
+            steps {
+                rtMavenRun (
+                    tool: 'maven3.8.8',
+                    pom: 'pom.xml',
+                    goals: 'clean install',
+                    deployerId: "MAVEN_DEPLOYER"
+                    
+                )
             }
         }
 
-        stage('build'){
-            steps{
-                sh "/opt/apache-maven-3.8.8/bin/mvn ${params.Maven_Goal}"
+        stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "JFrog_Demo"
+                )
             }
         }
-
-        stage('artifacts'){
-            steps{
-                sh 'whoami'
-            }
-        }
+		
+		
+		
     }
-     post {
-        always {
-            echo 'Job Completed'
-            mail subject: 'Build Completed',
-                    body: 'Build Completed',
-                    to: 'vinoddevops24@gmail.com'
-        }
-        failure {
-            mail subject: 'Build Failed',
-                    body: 'Build Failed',
-                    to: 'vinoddevops24@gmail.com'
-        }
-        success {
-            echo 'Job Completed successfully'
-            mail subject: 'Build Completed successfully',
-                    body: 'Build Completed successfully',
-                    to: 'vinoddevops24@gmail.com'
-        }
-    }
+     
 }
