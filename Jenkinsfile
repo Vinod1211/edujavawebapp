@@ -13,13 +13,20 @@ pipeline{
         }
 		
 		
-		 stage('build'){
+		stage('maven build'){
             steps{
                 withSonarQubeEnv('SonarQube_Scanner'){
                     sh "/opt/apache-maven-3.8.8/bin/mvn clean package sonar:sonar deploy"
                 }
             }
         }
+        stage('Quality Gate') {
+			steps {
+				timeout(time: 20, unit: 'MINUTES'){
+					waitForQualityGate abortPipeline: true
+				}
+			}
+		}
 		
     }
      
