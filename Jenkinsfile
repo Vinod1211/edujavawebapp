@@ -24,9 +24,14 @@ pipeline{
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: true
-                echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
-                sh 'echo BUILD_NUMBER = $BUILD_NUMBER'
-				echo "Current user is ${env.USER_NAME}"
+            }
+        }
+
+        stage("build docker image") {
+            steps {
+                sh "docker image build -t $env.JOB_NAME:$env.BUILD_ID ."
+                sh "docker tag $env.JOB_NAME http://13.127.20.63:8081/$env.JOB_NAME:$env.BUILD_ID"
+                sh "docker push http://13.127.20.63:8081/$env.JOB_NAME:$env.BUILD_ID"
             }
         }
 
