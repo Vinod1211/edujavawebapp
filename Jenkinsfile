@@ -24,11 +24,9 @@ pipeline{
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: true
-                envVariables (
-                    buildName: "$env.JOB_NAME",
-				    buildNumber: "$env.BUILD_NUMBER",
-				    project: "$env.JOB_NAME"
-                )
+                echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
+                sh 'echo BUILD_NUMBER = $BUILD_NUMBER'
+				echo "Current user is ${env.USER_NAME}"
             }
         }
 
