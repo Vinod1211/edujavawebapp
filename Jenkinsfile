@@ -13,17 +13,9 @@ pipeline{
         }
 		
 		
-		 stage ('Exec Maven') {
-            steps {
-                withSonarQubeEnv('SonarQube_Scanner'){
-                rtMavenRun (
-                    tool: 'Maven-3.8.8',
-                    pom: 'pom.xml',
-                    goals: 'clean package sonar:sonar deploy',
-                    deployerId: "MAVEN_DEPLOYER"
-                    
-                )
-                }
+		 stage('build'){
+            steps{
+                sh "/opt/apache-maven-3.8.8/bin/mvn ${params.Maven_Goal}"
             }
         }
 		
