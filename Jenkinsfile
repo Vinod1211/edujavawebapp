@@ -24,8 +24,12 @@ pipeline{
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: true
+                buildName: "$env.JOB_NAME",
+				buildNumber: "$env.BUILD_NUMBER",
+				project: "$env.JOB_NAME"
             }
         }
+
 		
     }
      
