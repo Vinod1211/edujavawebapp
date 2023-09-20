@@ -16,7 +16,7 @@ pipeline{
 		 stage('build'){
             steps{
                 withSonarQubeEnv('SonarQube_Scanner'){
-                    sh "/opt/apache-maven-3.8.8/bin/mvn clean package"
+                    sh "/opt/apache-maven-3.8.8/bin/mvn clean package sonar:sonar"
                 }
             }
         }
