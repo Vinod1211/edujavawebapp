@@ -47,13 +47,13 @@
   <snapshotRepository>
 		<id>nexus</id>
 		<name>Snapshot Nexus Repository</name>
-		<url>http://43.205.233.95:8081/repository/java-web-app-snap/</url>
+		<url>http://192.168.0.55:8081/repository/java-web-app-snap/</url>
 	 </snapshotRepository>
 
   <repository>
 		<id>nexus</id>
 		<name>Release Nexus Repository</name>
-		<url>http://43.205.233.95:8081/repository/java-web-app/</url>
+		<url>http://192.168.0.55:8081/repository/java-web-app/</url>
 	</repository>
 
 </distributionManagement>
