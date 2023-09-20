@@ -29,9 +29,9 @@ pipeline{
 
         stage("build docker image") {
             steps {
-                sh "docker image build -t $env.JOB_NAME:$env.BUILD_ID ."
-                sh "docker tag $env.JOB_NAME http://13.235.245.49:8081/$env.JOB_NAME:$env.BUILD_ID"
-                sh "docker push http://13.235.245.49:8081/$env.JOB_NAME:$env.BUILD_ID"
+                sh "docker image build -t eduwebapp:1 ."
+                sh "docker tag eduwebapp 13.235.245.49:8081/eduwebapp:1"
+                sh "docker push 13.235.245.49:8081/eduwebapp:1"
             }
         }
 
