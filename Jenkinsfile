@@ -15,7 +15,7 @@ pipeline{
 		
 		 stage('build'){
             steps{
-                sh "/opt/apache-maven-3.8.8/bin/mvn ${params.Maven_Goal}"
+                sh "/opt/apache-maven-3.8.8/bin/mvn clean package"
             }
         }
 		
