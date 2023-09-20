@@ -30,8 +30,8 @@ pipeline{
         stage("build docker image") {
             steps {
                 sh "docker image build -t eduwebapp:1 ."
-                sh "docker tag eduwebapp 192.168.0.55:8081/eduwebapp:1"
-                sh "docker push 192.168.0.55:8081/eduwebapp:1"
+                sh "docker tag eduwebapp 3.111.215.38:8081/eduwebapp:1"
+                sh "docker push 3.111.215.38:8081/eduwebapp:1"
             }
         }
 
