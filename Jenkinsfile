@@ -26,7 +26,6 @@ pipeline{
                 )
             }
         }
-		
 		 stage ('Exec Maven') {
             steps {
                 withSonarQubeEnv('Sonar_Scanner'){

@@ -38,11 +38,24 @@
   
 <!--JFrog Artifacts-->
   <distributionManagement>
-    <snapshotRepository>
+    <!--<snapshotRepository>
         <id>snapshots</id>
         <name>a0lma57egtzhf-artifactory-primary-0-snapshots</name>
         <url>https://mycompanydevops.jfrog.io/artifactory/eduwebapp-libs-snapshot</url>
-    </snapshotRepository>
+    </snapshotRepository> -->
+
+  <snapshotRepository>
+		<id>nexus</id>
+		<name>Snapshot Nexus Repository</name>
+		<url>http://43.205.233.95:8081/repository/java-web-app-snap/</url>
+	 </snapshotRepository>
+
+  <repository>
+		<id>nexus</id>
+		<name>Release Nexus Repository</name>
+		<url>http://43.205.233.95:8081/repository/java-web-app/</url>
+	</repository>
+
 </distributionManagement>
 
   <build>
