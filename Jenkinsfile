@@ -30,8 +30,8 @@ pipeline{
         stage("build docker image") {
             steps {
                 sh "docker image build -t $env.JOB_NAME:$env.BUILD_ID ."
-                sh "docker tag $env.JOB_NAME http://13.127.20.63:8081/$env.JOB_NAME:$env.BUILD_ID"
-                sh "docker push http://13.127.20.63:8081/$env.JOB_NAME:$env.BUILD_ID"
+                sh "docker tag $env.JOB_NAME http://13.235.245.49:8081/$env.JOB_NAME:$env.BUILD_ID"
+                sh "docker push http://13.235.245.49:8081/$env.JOB_NAME:$env.BUILD_ID"
             }
         }
 
