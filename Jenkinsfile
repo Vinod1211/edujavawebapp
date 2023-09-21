@@ -65,7 +65,7 @@ pipeline{
 
         stage('create container and run') {
             steps {
-                sh "docker run -d -p 8083:8083 vibama.jfrog.io/owndocker-docker/javawebapp:sample"
+                sh "docker run -d -P vibama.jfrog.io/owndocker-docker/javawebapp:sample"
             }
         }
 		
