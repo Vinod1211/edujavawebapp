@@ -42,18 +42,26 @@ pipeline{
                 )
             }
         }
-        /*stage("build docker image") {
+
+        stage('publish build info') {
+            steps {
+                rtPublishBuildInfo(
+                    serverId: 'jfrog_sample'
+                )
+            }
+        }
+        stage("build docker image") {
             steps {
                 
-                //sh "docker build -t 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER} ."
-                withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'nexus_pwd', usernameVariable: 'nexus_user')]) {
-                    sh "docker login -u ${nexus_user} -p ${nexus_pwd} 13.233.212.178:8081"
+                withCredentials([usernamePassword(credentialsId: 'jfrog1', passwordVariable: 'jfrog_pwd', usernameVariable: 'jfrog_user')]) {
+                    sh "docker login -u ${jfrog_user} -p ${jfrog_pwd} vibama.jfrog.io"
                     sh "docker build -t eduwebapp:${BUILD_NUMBER}"
-                    sh "docker push 13.233.212.178:8081/eduwebapp:${BUILD_NUMBER}"
+                    sh "docker tag eduwebapp:${BUILD_NUMBER} vibama.jfrog.io/owndocker-docker/javawebapp:sample"
+                    sh "docker push vibama.jfrog.io/owndocker-docker/javawebapp:sample"
                 }
                 
             }
-        }*/
+        }
 
 		
     }
