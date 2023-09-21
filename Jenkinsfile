@@ -55,7 +55,7 @@ pipeline{
                 
                 withCredentials([usernamePassword(credentialsId: 'jfrog1', passwordVariable: 'jfrog_pwd', usernameVariable: 'jfrog_user')]) {
                     sh "docker login -u ${jfrog_user} -p ${jfrog_pwd} vibama.jfrog.io"
-                    sh "docker build -t eduwebapp:${BUILD_NUMBER}"
+                    sh "docker build -t eduwebapp:${BUILD_NUMBER} ."
                     sh "docker tag eduwebapp:${BUILD_NUMBER} vibama.jfrog.io/owndocker-docker/javawebapp:sample"
                     sh "docker push vibama.jfrog.io/owndocker-docker/javawebapp:sample"
                 }
