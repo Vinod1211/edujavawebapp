@@ -34,7 +34,7 @@ pipeline{
                 withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'nexus_pwd', usernameVariable: 'nexus_user')]) {
                     sh "docker login -u ${nexus_user} -p ${nexus_pwd} 13.233.212.178:8081"
                     sh "docker build -t eduwebapp:${BUILD_NUMBER}"
-                    sh "docker push 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER}"
+                    sh "docker push 13.233.212.178:8081/eduwebapp:${BUILD_NUMBER}"
                 }
                 
             }
