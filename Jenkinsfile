@@ -30,12 +30,13 @@ pipeline{
         stage("build docker image") {
             steps {
                 
-                sh "docker build -t 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER} ."
-                withCredentials([string(credentialsId: 'nexus_pwd', variable: 'nexus_pwd')]) {
-                    sh "docker login 13.233.212.178:8081 -u admin -p ${nexus_pwd}"
+                //sh "docker build -t 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER} ."
+                withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'nexus_pwd', usernameVariable: 'nexus_user')]) {
+                    sh "docker login -u ${nexus_user} -p ${nexus_pwd} 13.233.212.178:8081"
+                    sh "docker build -t eduwebapp:${BUILD_NUMBER}"
+                    sh "docker push 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER}"
                 }
                 
-                sh "docker push 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER}"
             }
         }
 
