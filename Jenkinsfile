@@ -16,7 +16,7 @@ pipeline{
 		stage('maven build'){
             steps{
                 withSonarQubeEnv('SonarQube_Scanner'){
-                    sh "/opt/apache-maven-3.8.8/bin/mvn clean package sonar:sonar deploy"
+                    sh "/opt/apache-maven-3.8.8/bin/mvn clean package sonar:sonar"
                 }
             }
         }
@@ -27,7 +27,22 @@ pipeline{
             }
         }
 
-        stage("build docker image") {
+        stage("Upload artifacts to jfrog"){
+            steps {
+                rtUpload(
+                    serverId:
+                    spec: '''{
+                        "files": [
+                            {
+                                "pattern": "./target/*.war",
+                                "target": "javaapp-libs-release/"
+                            }
+                        ]
+                    }''',
+                )
+            }
+        }
+        /*stage("build docker image") {
             steps {
                 
                 //sh "docker build -t 13.233.212.178:8082/eduwebapp:${BUILD_NUMBER} ."
@@ -38,7 +53,7 @@ pipeline{
                 }
                 
             }
-        }
+        }*/
 
 		
     }
