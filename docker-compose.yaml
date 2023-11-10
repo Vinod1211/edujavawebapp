@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   webserver:
-    image: javawebapp:9
+    image: vinodchenga/javawebapp:9
     ports:
       - target: 8080
         published: 8082
